@@ -1,0 +1,48 @@
+html, body {
+	--header-footer-size: 64px;
+	background-color: #0D1117;
+	color: #C0C7CE;
+	width: 100%;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+header {
+	font-size: 24px;
+}
+
+header, footer {
+	height: var(--header-footer-size);
+	background-color: #161B22;
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+	line-height: var(--header-footer-size);
+}
+
+header a {
+	color: inherit;
+	text-decoration-line: inherit;
+}
+
+a {
+	color: inherit;
+}
+
+header img {
+	border-radius: 25%;
+	margin-top: calc(var(--header-footer-size) * 0.125);
+	height: calc(var(--header-footer-size) * 0.75);
+}
+
+main {
+	margin: 0;
+	min-height: calc(100vh - var(--header-footer-size) * 2);
+}
+
+.container {
+	padding: 5px 25px;
+	margin: auto;
+	max-width: 800px
+}

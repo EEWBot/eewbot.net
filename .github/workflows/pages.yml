@@ -1,0 +1,48 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["master"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3.0.6
+
+      - name: Install Inkscape
+        run: |
+          sudo add-apt-repository -y ppa:inkscape.dev/stable
+          sudo apt-get -y update
+          sudo apt-get install -y inkscape
+
+      - name: Build SVGs
+        run: |
+          ./build.sh
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2.0.0
+        with:
+          path: 'static/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2.0.4
