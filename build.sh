@@ -46,7 +46,13 @@ tar xf resources.tar
 
 # --------------------------------
 
-mkdir -p ./static/imgs/
+cp -ri ./template ./static
 
-cp ./resources/ogp.png ./static/imgs/eewbot.ogp.png
-cp ./resources/icon.png ./static/imgs/eewbot.png
+find ./static -name "*.html" | while read -r html; do
+	sed -i "s/RESOURCES_VERSION/${RESOURCES_VERSION}/g" "$html"
+done
+
+mkdir -p "./static/imgs/${RESOURCES_VERSION}"
+
+cp ./resources/ogp.png "./static/imgs/${RESOURCES_VERSION}/eewbot.ogp.png"
+cp ./resources/icon.png "./static/imgs/${RESOURCES_VERSION}/eewbot.png"

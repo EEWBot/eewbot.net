@@ -28,9 +28,9 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5.0.0
 
-      - name: Update Resources
+      - name: Run template engine
         run: |
-          ./fetch-resources.sh
+          ./build.sh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
