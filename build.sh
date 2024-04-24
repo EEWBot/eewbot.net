@@ -52,7 +52,7 @@ find ./static -name "*.html" | while read -r html; do
 	sed -i "s/RESOURCES_VERSION/${RESOURCES_VERSION}/g" "$html"
 done
 
-mkdir -p "./static/imgs/${RESOURCES_VERSION}"
+mkdir -p ./static/imgs/
 
-cp ./resources/ogp.png "./static/imgs/${RESOURCES_VERSION}/eewbot.ogp.png"
-cp ./resources/icon.png "./static/imgs/${RESOURCES_VERSION}/eewbot.png"
+cp ./resources/ogp.png ./static/imgs/
+cp ./resources/icon.png ./static/imgs/
