@@ -36,7 +36,7 @@ set -x
 # --------------------------------
 
 # depName=EEWBot/eew-resources
-RESOURCES_VERSION="v2024.4.1"
+RESOURCES_VERSION="v2024.4.2"
 
 curl -L -f -s \
 	--output resources.tar \
