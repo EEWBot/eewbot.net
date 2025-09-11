@@ -17,6 +17,13 @@ body {
 
 header {
 	font-size: 24px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background-color: #0D1117;
+	border-bottom: 1px solid #30363D;
 }
 
 header, footer {
@@ -33,6 +40,12 @@ header {
 footer {
 	height: var(--header-footer-size);
 	line-height: var(--header-footer-size);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	border-top: 1px solid #30363D;
 }
 
 .header-container {
@@ -262,6 +275,8 @@ main {
 	margin: 0;
 	height: calc(100vh - var(--header-footer-size) * 2);
 	flex: 1;
+	margin-top: var(--header-footer-size);
+	margin-bottom: var(--header-footer-size);
 }
 
 #content-frame {
