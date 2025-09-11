@@ -3,9 +3,16 @@ html, body {
 	background-color: #0D1117;
 	color: #C0C7CE;
 	width: 100%;
+	height: 100vh;
 	margin: 0;
 	border: 0;
 	padding: 0;
+	font-family: sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
 }
 
 header {
@@ -13,36 +20,409 @@ header {
 }
 
 header, footer {
-	height: var(--header-footer-size);
 	background-color: #161B22;
 	display: flex;
-	gap: 16px;
 	justify-content: center;
+}
+
+header {
+	min-height: var(--header-footer-size);
+	padding: 8px 0;
+}
+
+footer {
+	height: var(--header-footer-size);
 	line-height: var(--header-footer-size);
 }
 
-header a {
+.header-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 800px;
+	padding: 0 25px;
+	position: relative;
+}
+
+.header-left {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.header-left a {
 	color: inherit;
-	text-decoration-line: inherit;
+	text-decoration: none;
+}
+
+.header-left img {
+	border-radius: 25%;
+	height: calc(var(--header-footer-size) * 0.75);
+}
+
+.header-nav {
+	display: flex;
+	gap: 24px;
+	align-items: center;
+	flex: 1;
+	justify-content: center;
+}
+
+.header-nav a {
+	color: #C0C7CE !important;
+	text-decoration: none !important;
+	font-size: 16px;
+	transition: color 0.2s;
+	display: inline-block;
+	line-height: 1;
+	padding: 0;
+	margin: 0;
+	vertical-align: baseline;
+	background: none !important;
+	border: none !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.header-nav a:hover {
+	color: #58A6FF;
+}
+
+.external-link {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.external-link svg {
+	opacity: 0.7;
+	transition: opacity 0.2s;
+}
+
+.external-link:hover svg {
+	opacity: 1;
+}
+
+.header-right {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-shrink: 0;
+}
+
+.invite-btn {
+	background-color: #5865F2;
+	color: white;
+	padding: 8px 16px;
+	border-radius: 6px;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+	transition: background-color 0.2s;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: "BIZ UDPGothic", sans-serif;
+}
+
+.invite-btn:hover {
+	background-color: #4752C4;
+}
+
+.github-btn {
+	color: #C0C7CE;
+	text-decoration: none;
+	padding: 8px;
+	border-radius: 6px;
+	transition: background-color 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.github-btn svg {
+	vertical-align: middle;
+}
+
+.github-btn:hover {
+	background-color: #21262D;
+}
+
+.hamburger {
+	display: none;
+	flex-direction: column;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 8px;
+	gap: 4px;
+}
+
+.hamburger span {
+	width: 20px;
+	height: 2px;
+	background-color: #C0C7CE;
+	transition: all 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+	transform: rotate(45deg) translate(0, 9px);
+}
+
+.hamburger.active span:nth-child(2) {
+	opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+	transform: rotate(-45deg) translate(0, -9px);
 }
 
 a {
 	color: inherit;
 }
 
-header img {
-	border-radius: 25%;
-	margin-top: calc(var(--header-footer-size) * 0.125);
-	height: calc(var(--header-footer-size) * 0.75);
+.logo-text {
+	font-family: "Exo 2", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: italic;
+	vertical-align: middle;
+	line-height: 1;
+	position: relative;
+	top: -2px;
+}
+
+@media (max-width: 768px) {
+	.header-nav {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 280px;
+		height: 100vh;
+		background-color: rgba(22, 27, 34, 0.5);
+		backdrop-filter: blur(5px);
+		flex-direction: column;
+		padding: 80px 30px 30px;
+		gap: 24px;
+		transform: translateX(100%);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease-in-out;
+		z-index: 1000;
+		flex: none;
+		justify-content: flex-start;
+		box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+	}
+
+	.header-nav.active {
+		transform: translateX(0);
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.hamburger {
+		display: flex;
+		z-index: 1001;
+	}
+
+	.header-right {
+		gap: 8px;
+		margin-left: auto;
+		margin-right: 0;
+	}
+
+	.invite-btn {
+		font-size: 12px;
+		padding: 6px 12px;
+	}
+
+	/* メニューオーバーレイ */
+	.header-nav::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.3);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease-in-out;
+		z-index: -1;
+	}
+
+	.header-nav.active::before {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 main {
 	margin: 0;
-	min-height: calc(100vh - var(--header-footer-size) * 2);
+	height: calc(100vh - var(--header-footer-size) * 2);
+	flex: 1;
+}
+
+#content-frame {
+	width: 100%;
+	height: 100%;
+	border: none;
+	overflow: auto;
+}
+
+#content-frame::-webkit-scrollbar {
+	width: 8px;
+}
+
+#content-frame::-webkit-scrollbar-track {
+	background: #161B22;
+}
+
+#content-frame::-webkit-scrollbar-thumb {
+	background: #30363D;
+	border-radius: 4px;
+}
+
+#content-frame::-webkit-scrollbar-thumb:hover {
+	background: #484F58;
 }
 
 .container {
 	padding: 5px 25px;
-	margin: auto;
-	max-width: 800px
+	margin: 0 auto;
+	max-width: 800px;
+	text-align: left;
+}
+
+/* ヒーローセクション */
+.hero {
+	text-align: center;
+	padding: 60px 0 80px;
+}
+
+.hero-icon {
+	margin-bottom: 24px;
+}
+
+.hero-icon img {
+	width: 120px;
+	height: 120px;
+	border-radius: 25%;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+	font-family: "Exo 2", sans-serif;
+	font-size: 3.5rem;
+	font-weight: 700;
+	font-style: italic;
+	color: #C0C7CE;
+	margin: 0 0 16px 0;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-description {
+	font-size: 1.5rem;
+	color: #8B949E;
+	margin: 0 0 40px 0;
+	font-weight: 300;
+}
+
+.hero-buttons {
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.hero-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 16px 32px;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.1rem;
+	transition: all 0.2s ease;
+	min-width: 180px;
+	text-align: center;
+	font-family: "BIZ UDPGothic", sans-serif;
+}
+
+.discord-icon {
+	flex-shrink: 0;
+}
+
+.hero-btn.primary {
+	background: linear-gradient(135deg, #5865F2, #4752C4);
+	color: white;
+}
+
+.hero-btn.primary:hover {
+	background: linear-gradient(135deg, #4752C4, #5865F2);
+	transform: translateY(-2px);
+}
+
+.hero-btn.secondary {
+	background: transparent;
+	color: #C0C7CE;
+	border: 2px solid #30363D;
+}
+
+.hero-btn.secondary:hover {
+	background: #21262D;
+	border-color: #58A6FF;
+	color: #58A6FF;
+	transform: translateY(-2px);
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+	.hero {
+		padding: 40px 0 60px;
+	}
+	
+	.hero-icon img {
+		width: 100px;
+		height: 100px;
+	}
+	
+	.hero-title {
+		font-size: 2.5rem;
+	}
+	
+	.hero-description {
+		font-size: 1.25rem;
+	}
+	
+	.hero-buttons {
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.hero-btn {
+		width: 100%;
+		max-width: 280px;
+	}
+}
+
+/* iframe内のスクロールバーをカスタマイズ */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #161B22;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #30363D;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #484F58;
 }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang=ja>
+	<head>
+		<meta charset=UTF-8>
+		<meta name=viewport content="width=device-width, initial-scale=1.0">
+		<meta property=og:type content=website>
+		<meta property=og:title content=EEWBot - 使い方>
+		<meta property=og:site_name content=EEWBot>
+		<meta property=og:image content=https://eewbot.net/imgs/ogp.png?RESOURCES_VERSION>
+		<meta name=twitter:card content=summary_large_image>
+		<link rel=icon href=/imgs/icon.png?RESOURCES_VERSION>
+		<title>EEWBot - 使い方</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&family=Exo+2:ital,wght@1,700&display=swap" rel="stylesheet">
+		<link rel=stylesheet href=style.css>
+		<script src=common.js></script>
+	</head>
+	<body style="margin: 0; padding: 0;">
+		<div class=container>
+			<h1>使い方</h1>
+
+			<section>
+				<h2>注意事項</h2>
+				<p>EEWBotはProject DM-D.S.Sをデータソースとした、Discord向け緊急地震速報Botです。</p>
+				<p>ご使用にあたっては、以下の点にご注意ください。詳細は<a href="disclaimer.html" onclick="window.parent.postMessage('navigate:disclaimer.html', '*'); return false;">免責事項</a>をご確認ください。</p>
+				<ul>
+					<li>EEWBotが提供する自然災害情報の正確性などについては保証しません。</li>
+					<li>EEWBotが提供する情報についてはユーザーは自己責任で利用するものとします。</li>
+					<li>運営者は、EEWBotの利用により生じたいかなる損害について一切の責任を負いません。</li>
+					<li>緊急時は必ず公式の情報源をご確認ください。</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>サーバーに招待する</h2>
+				<p>EEWBotを自身が管理するDiscordサーバーに導入するには<a href="https://invite.eewbot.net/" target="_blank" rel="noopener noreferrer">Bot招待リンク</a>を使用してください。</p>
+				<p>リンク先に表示される権限をすべて付与することを推奨します。</p>
+				<p><strong>注意!</strong> Botをサーバーに導入しただけでは自動で動作しません。導入後、下記の「セットアップする」手順に従い、初期設定を行ってください。</p>
+			</section>
+
+			<section>
+				<h2>セットアップする</h2>
+				<p>EEWBotをサーバーに導入したら、以下の手順で自動配送の設定をすることができます。</p>
+				<ol>
+					<li>自動で自然災害情報を受信したいチャンネルで<code>/setup</code>コマンドを実行します。</li>
+					<li>コマンド実行後に表示されるメニューに従い、設定を行ってください。</li>
+					<li>設定が完了したら、「設定しました！今後このチャンネルに以下の情報が送信されます。」と表示されます。</li>
+				</ol>
+				<p>設定を変更する際や設定を解除する際も、<code>/setup</code>コマンドを使用してください。</p>
+			</section>
+
+			<section>
+				<h2>自動Webhook設定について</h2>
+				<p>セットアップ時、EEWBotは自動でWebhookを作成して、低遅延配信を有効にしようとします。</p>
+				<p>そのチャンネルでWebhook設定が有効化どうかは下記の「メッセージ配信テスト」手順に従い、確認することができます。</p>
+			</section>
+
+			<section>
+				<h2>メッセージ配信テスト</h2>
+				<p>設定が完了したら、設定したチャンネルで<code>/testmessage</code>コマンドを使用してメッセージ配信テストを行うことができます。</p>
+				<p>メッセージが送信されたら、設定が完了しています。</p>
+				<p>もし「Webhookによる低遅延配信が無効です。」と表示された場合はBotのWebhook管理権限を確認してから、再度<code>/setup</code>コマンドを使用してください。</p>
+				<p>Webhookによる低遅延配信が有効な状態で、Webhookが手動で削除された場合も正しく送信されません。再度<code>/setup</code>コマンドを使用してください。</p>
+				<p>また、メッセージが送信されない場合は、設定したチャンネルでBotに適切な権限が付与されているか確認してください。</p>
+				<p>それでもメッセージが送信されない場合は、<a href="https://support.eewbot.net/" target="_blank" rel="noopener noreferrer">サポート</a>までご連絡ください。</p>
+			</section>
+
+			<section>
+				<h2>よくある問題</h2>
+				<ul>
+					<li><strong>「アプリケーションが応答しませんでした」「インタラクションに失敗しました」と表示される</strong><br>もし、 「インタラクションに失敗しました」 と表示される場合、Botが現在速報配送中等でビジー状態となっている可能性があります。<br>時間を空けて、もう一度お試しください。</li>
+					<li><strong>setupが使えない場合</strong><br><code>/setup</code>コマンドを使用するには、そのサーバーの管理権限が必要です。<br>権限が付与されているユーザーでお試しください。</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>サポート</h2>
+				<p>お困りの際は、<b><a href=https://support.eewbot.net/ target="_blank" rel="noopener noreferrer">EEWBotの公式Discordサーバー</a></b>で気軽に質問してください。</p>
+			</section>
+			
+		</div>
+	</body>
+</html>
