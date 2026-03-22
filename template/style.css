@@ -43,6 +43,7 @@ footer {
 	height: var(--header-footer-size);
 	line-height: var(--header-footer-size);
 	border-top: 1px solid #30363D;
+	color: #8B949E;
 }
 
 .header-container {
