@@ -348,32 +348,12 @@ main {
 	padding: 60px 0 80px;
 }
 
-.hero-icon {
-	margin-bottom: 24px;
-}
-
-.hero-icon img {
-	width: 120px;
-	height: 120px;
-	border-radius: 25%;
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
 .hero-title {
-	font-family: "Exo 2", sans-serif;
-	font-size: 3.5rem;
+	font-size: 3rem;
 	font-weight: 700;
-	font-style: italic;
 	color: #C0C7CE;
 	margin: 0 0 16px 0;
 	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-description {
-	font-size: 1.5rem;
-	color: #8B949E;
-	margin: 0 0 40px 0;
-	font-weight: 300;
 }
 
 .hero-buttons {
